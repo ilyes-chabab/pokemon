@@ -23,7 +23,7 @@ def page_accueil():
     #initialisation de la musique
     pygame.mixer.init()
     #chargement musique de fond
-    pygame.mixer.music.load('music/Pokemon-menu-music.ogg')
+    pygame.mixer.music.load('music/Pokemon-menu-music.mp3')
     #Musique de fond
     pygame.mixer.music.play()
 
@@ -39,8 +39,6 @@ def page_accueil():
             screen.blit(text,(325,300))
             text = My_font.render("Plus de Pokémon",1,(255,255,255))
             screen.blit(text,(310,400))
-            
-            
             
             if event.type==pygame.QUIT:
                 sys.exit()
@@ -60,7 +58,21 @@ def page_accueil():
                     # importation de la fonction de jeu pur.
                     # jeu.partie_simple()
                     print('ok')
+            elif event.type== pygame.MOUSEMOTION:
+                (x,y)=pygame.mouse.get_pos()
+                if 400<x<500 and 200<y<230:
+                    text = My_font.render("Jouer",1,(255,255,0))
+                    screen.blit(text,(400,200))
+                elif 325<x<580 and 300<y<330:
+                    text = My_font.render("Voir le Pokédex",1,(255,255,0))
+                    screen.blit(text,(325,300))
+                elif 310<x<600 and 400<y<430:
+                    text = My_font.render("Plus de Pokémon",1,(255,255,0))
+                    screen.blit(text,(310,400))
+                    
+        
         screen.blit(logo,logo_position)
+
         
         pygame.display.flip()
 page_accueil()
