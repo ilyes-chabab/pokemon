@@ -9,41 +9,39 @@ def page_accueil():
 
     screen = pygame.display.set_mode((width,height))
     pygame.display.set_caption("Pokémon")
-    #fond d'ecran
+    #Logo "Pokémon"
     logo = pygame.image.load('logo/Pokemon_logo.png')
-    DEFAULT_IMAGE_SIZE = (550, 150)
-    logo=pygame.transform.scale(logo, DEFAULT_IMAGE_SIZE)
+    image_size = (550, 150)
+    #Mise à l'échelle de l'image.
+    logo=pygame.transform.scale(logo, image_size)
+    #Position de l'image par rapport au dimmension de la fenetre de jeu 
     logo_position = (175,0)
     
     #couleur de fond
     screen.fill((0,0,0))
     pygame.font.init()
+    #initialisation de la musique
     pygame.mixer.init()
+    #chargement musique de fond
     pygame.mixer.music.load('music/Pokemon-menu-music.ogg')
+    #Musique de fond
     pygame.mixer.music.play()
 
     while True:
 
         for event in pygame.event.get() :
             
-            
-            
-            
-            # my_font=pygame.font.Font(None, 100)        
-            #titre
-            # text = my_font.render("Pokémon",1,(0,0,0))
-            # screen.blit(text,(300,0))
             #Option de jeu
             My_font=pygame.font.Font(None, 50)        
             text = My_font.render("Jouer",1,(255,255,255))
             screen.blit(text,(400,200))
-            text = My_font.render("Voir le Pokedex",1,(255,255,255))
+            text = My_font.render("Voir le Pokédex",1,(255,255,255))
             screen.blit(text,(325,300))
-            text = My_font.render("Plus de pokemon",1,(255,255,255))
+            text = My_font.render("Plus de Pokémon",1,(255,255,255))
             screen.blit(text,(310,400))
             
             
-            # pygame.mixer.music.play(-1)
+            
             if event.type==pygame.QUIT:
                 sys.exit()
             
