@@ -63,8 +63,8 @@ class Combat:
             print(f"{ennemi.nom} a perdu. ")
     
     def lancerCombat(self):
-        joueur1=Pokemon("pika",20,1,"sol",5,0.80)
-        joueur2=Pokemon("sabelette",20,1,"feu",6,0.70)
+        joueur1=Pokemon("pika",20,1,"normal",5,0.80)
+        joueur2=Pokemon("sabelette",20,1,"normal",6,0.70)
         while True:
             if joueur2.vie >0:
                 if joueur1.vie >0:
