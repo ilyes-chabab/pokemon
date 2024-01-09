@@ -41,8 +41,7 @@ class Combat:
         attaque= self.typePuissance(joueur,ennemi) * ennemi.defense
         ennemi.vie -= attaque
         Pokemon.getVie(self,ennemi.vie)
-        print(f"{ennemi.nom} a perdu {attaque} pv")
-        print(f"{ennemi.nom} a {ennemi.vie}")
+        print(f"{ennemi.nom} a perdu {attaque} pv. total des pv :{ennemi.vie}")
     def gagnant(self,joueur,ennemi):
         if joueur.vie < 0:
             print(f"{ennemi.nom} a gagné.")
@@ -50,15 +49,14 @@ class Combat:
         if ennemi.vie < 0:
             print(f"vous avez gagné ! :)")
             print(f"{ennemi.nom} a perdu. ")
-
     def lancerCombat(self):
         joueur1=Pokemon("pika",20,1,"feu",5,0.80)
-        joueur2=Pokemon("pi",20,1,"sol",6,0.70)
+        joueur2=Pokemon("sabelette",20,1,"eau",6,0.70)
         while True:
             if joueur2.vie >0:
                 self.attaque(joueur1,joueur2)
             if joueur1.vie >0:
-                self.attaque(joueur1,joueur2)
+                self.attaque(joueur2,joueur1)
             else:             
                 self.gagnant(joueur1,joueur2)
                 break
