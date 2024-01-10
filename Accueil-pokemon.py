@@ -16,9 +16,16 @@ def page_accueil():
     logo=pygame.transform.scale(logo, image_size)
     #Position de l'image par rapport au dimmension de la fenetre de jeu 
     logo_position = (175,0)
+    #Photo des deux pokemon legendaire
+    img_groudon=pygame.image.load('image_menu/Groudon.png')
+    img_groudon=pygame.transform.scale(img_groudon, (250,175))
+    groudon_position = (0,250)
+    img_kyogre=pygame.image.load('image_menu/Kyogre.png')
+    img_kyogre=pygame.transform.scale(img_kyogre, (250,175))
+    kyogre_position = (650,250)
     
     #couleur de fond
-    screen.fill((0,0,0))
+    screen.fill((250,137,0))
     pygame.font.init()
     #initialisation de la musique
     pygame.mixer.init()
@@ -72,6 +79,8 @@ def page_accueil():
                     
         
         screen.blit(logo,logo_position)
+        screen.blit(img_groudon,groudon_position)
+        screen.blit(img_kyogre,kyogre_position)
 
         
         pygame.display.flip()
