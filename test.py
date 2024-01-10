@@ -4,16 +4,16 @@ pygame.init()
 # On crée une fenetre de 900 sur 600 px
 surf = pygame.display.set_mode((900,600))
 run = True
-font_path = "./Pokemon Hollow.ttf"
+font_path = "./Pokemon Solid.ttf"
 
 class Case:
-    # X et Y sont les coordonnées pour nos carré
-    def __init__(self, x ,y):
-        self.x = x 
-        self.y = y
     
-    def draw_case(self):
-        pygame.draw.rect(surf ,(0,0,0) ,(self.x ,self.y ,100 ,100) ,2)
+    def __init__(self):
+        pass
+    
+    # X et Y sont les coordonnées pour nos carré
+    def draw_case(self ,x ,y):
+        pygame.draw.rect(surf ,(255,255,255) ,(x ,y ,100 ,100) ,2)
     
     def close_menu(self):
         if event.type == pygame.MOUSEBUTTONDOWN:
@@ -24,26 +24,29 @@ class Case:
         pokemon = pygame.image.load(link)
         surf.blit(pokemon ,(posx ,posy))
     
+    def choose_pokemon(self):
+        pass
+    
     def draw_text(self):
         police = pygame.font.Font(font_path ,35)
-        img_texte = police.render ("Choose Your Pokemon !",1,(0,0,0))
+        img_texte = police.render ("Choose Your Pokemon !",1,(255,255,255))
         surf.blit(img_texte,(245 ,270))
         
 
 # Initialisation des case correspondant à chaque pokemon
-poussifeu = Case (80 ,20)
-galifeu = Case (380 ,20)
-brasegali = Case(700 ,20)
-gobou = Case (80 ,160)
-flobio = Case (380 ,160)
-laggron = Case(700 ,160)
-miaouss = Case (80 ,320)
-zigzaton = Case (380 ,320)
-ronflex = Case(700 ,320)
-osselait = Case (80 ,480)
-sabelette = Case (380 ,480)
-groudon = Case(700 ,480)
-text = Case (350 ,300)
+poussifeu = Case ()
+galifeu = Case ()
+brasegali = Case()
+gobou = Case ()
+flobio = Case ()
+laggron = Case()
+miaouss = Case ()
+zigzaton = Case ()
+ronflex = Case()
+osselait = Case ()
+sabelette = Case ()
+groudon = Case()
+text = Case ()
 
 
 
@@ -52,22 +55,22 @@ while run :
         if event.type == pygame.QUIT:
             run = False
     # Définir un fond blanc
-    surf.fill((255,255,255))
+    surf.fill((0,0,0))
 
     # Dessiner les cases
 
-    poussifeu.draw_case()
-    galifeu.draw_case()
-    brasegali.draw_case()
-    gobou.draw_case()
-    flobio.draw_case()
-    laggron.draw_case()
-    miaouss.draw_case()
-    zigzaton.draw_case()
-    ronflex.draw_case()
-    osselait.draw_case()
-    sabelette.draw_case()
-    groudon.draw_case()
+    poussifeu.draw_case(80 ,20)
+    galifeu.draw_case(380 ,20)
+    brasegali.draw_case(700 ,20)
+    gobou.draw_case(80 ,160)
+    flobio.draw_case(380 ,160)
+    laggron.draw_case(700 ,160)
+    miaouss.draw_case(80 ,320)
+    zigzaton.draw_case(380 ,320)
+    ronflex.draw_case(700 ,320)
+    osselait.draw_case(80 ,480)
+    sabelette.draw_case(380 ,480)
+    groudon.draw_case(700 ,480)
 
     # Afficher les images des pokemons dans les cases
 
