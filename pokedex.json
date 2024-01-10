@@ -1,1 +1,14 @@
-{"nom": "Flobio", "vie": 40, "niveau": 1, "type": "eau", "puissance": 12, "defense": 0.9, "image": "pikachu.png"}{"nom": "Flobio", "vie": 40, "niveau": 1, "type": "eau", "puissance": 12, "defense": 0.9, "image": "pikachu.png"}{"nom": "Flobio", "vie": 40, "niveau": 1, "type": "eau", "puissance": 12, "defense": 0.9, "image": "pikachu.png"}{"nom": "Flobio", "vie": 40, "niveau": 1, "type": "eau", "puissance": 12, "defense": 0.9, "image": "pikachu.png"}{"nom": "Flobio", "vie": 40, "niveau": 1, "type": "eau", "puissance": 12, "defense": 0.9, "image": "pikachu.png"}{"nom": "Flobio", "vie": 40, "niveau": 1, "type": "eau", "puissance": 12, "defense": 0.9, "image": "pikachu.png"}{"nom": "Flobio", "vie": 40, "niveau": 1, "type": "eau", "puissance": 1245, "defense": 0.9, "image": "pikachu.png"}{"nom": "Flobio", "vie": 40, "niveau": 1, "type": "eau", "puissance": 1245, "defense": 0.9, "image": "pikachu.png"}{"nom": "Flofo", "vie": 40, "niveau": 1, "type": "eau", "puissance": 1245, "defense": 0.9, "image": "pikachu.png"}
+[
+    {"nom": "Poussifeu", "vie": 40, "niveau": 1,"type": "feu","puissance": 14,"defense": 0.80,"image": "poussifeu.png"},
+    {"nom": "Galifeu", "vie": 40, "niveau": 1,"type": "feu","puissance": 14,"defense": 0.80,"image": "galifeu.png"},
+    {"nom": "Brasegali", "vie": 40, "niveau": 1,"type": "feu","puissance": 14,"defense": 0.80,"image": "brasegali.png"},
+    {"nom": "Gobou", "vie": 40, "niveau": 1,"type": "eau","puissance": 12,"defense": 0.90,"image": "gobou.png"},
+    {"nom": "Flobio", "vie": 40, "niveau": 1,"type": "eau","puissance": 12,"defense": 0.90,"image": "flobio.png"},
+    {"nom": "Laggron", "vie": 40, "niveau": 1,"type": "eau","puissance": 12,"defense": 0.90,"image": "laggron.png"},
+    {"nom": "Miaouss", "vie": 40, "niveau": 1,"type": "normal","puissance": 13,"defense": 0.85,"image": "miaouss.png"},
+    {"nom": "Zigzaton", "vie": 40, "niveau": 1,"type": "normal","puissance": 13,"defense": 0.85,"image": "zigzaton.png"},
+    {"nom": "Ronflex", "vie": 40, "niveau": 1,"type": "normal","puissance": 13,"defense": 0.85,"image": "ronflex.png"},
+    {"nom": "Osselait", "vie": 40, "niveau": 1,"type": "sol","puissance": 16,"defense": 0.70,"image": "osselait.png"},
+    {"nom": "Sabelette", "vie": 40, "niveau": 1,"type": "sol","puissance": 16,"defense": 0.70,"image": "sabelette.png"},
+    {"nom": "Groudon", "vie": 40, "niveau": 1,"type": "sol","puissance": 16,"defense": 0.70,"image": "groudon.png"}
+]
