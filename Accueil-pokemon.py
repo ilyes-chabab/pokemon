@@ -23,7 +23,7 @@ def page_accueil():
     #initialisation de la musique
     pygame.mixer.init()
     #chargement musique de fond
-    pygame.mixer.music.load('music/Pokemon-menu-music.mp3')
+    pygame.mixer.music.load('music-menu/Pokemon-menu-music.mp3')
     #Musique de fond
     pygame.mixer.music.play()
 
