@@ -4,7 +4,7 @@ pygame.init()
 # On crée une fenetre de 900 sur 600 px
 surf = pygame.display.set_mode((900,600))
 run = True
-font_path = "./Pokemon Solid.ttf"
+font_path = "font_interface/Pokemon Solid.ttf"
 
 class Case:
     
@@ -31,6 +31,14 @@ class Case:
         police = pygame.font.Font(font_path ,35)
         img_texte = police.render ("Choose Your Pokemon !",1,(255,255,255))
         surf.blit(img_texte,(245 ,270))
+    
+    def get_pos(self ,a ,z):
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if pygame.mouse.get_pressed() == (1,0,0) :
+                x , y = pygame.mouse.get_pos()
+                if x <= (a) and y <= (z):
+                    print ("gg")
+        
         
 
 # Initialisation des case correspondant à chaque pokemon
