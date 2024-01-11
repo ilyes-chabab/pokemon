@@ -1,7 +1,12 @@
 import pygame 
 import sys
 
-def page_accueil():
+class page_accueil():
+    
+    def __init__(self) :
+        pass
+        
+    
     pygame.init()
 
     width,height = 900,600
