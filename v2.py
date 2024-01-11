@@ -5,7 +5,7 @@ class PageAccueil:
     
     def __init__(self):
         pygame.init()
-
+        
         self.width, self.height = 900, 600
         self.screen = pygame.display.set_mode((self.width, self.height))
         pygame.display.set_caption("Pokémon")
@@ -92,6 +92,7 @@ class PageAccueil:
         text = my_font.render("Plus de Pokémon", 1, (255, 255, 255))
         self.screen.blit(text, (310, 400))
     
+
 # Création de l'instance de Classe 
-PageAccueil()
+page_accueil = PageAccueil()
 
