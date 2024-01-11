@@ -63,7 +63,9 @@ while run :
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
+    
     # Définir un fond blanc
+   
     surf.fill((0,0,0))
 
     # Dessiner les cases
@@ -99,9 +101,10 @@ while run :
     # Afficher le texte
     text.draw_text()
 
-     # Cliquer dans la case
+    # Cliquer dans la case
     poussifeu.get_pos(80 ,180 ,20 ,120)
     galifeu.get_pos(380 ,480 ,20 ,120)
     brasegali.get_pos(700 ,800 ,20 ,120)
     pygame.display.flip()
+
 pygame.quit()
