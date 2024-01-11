@@ -13,7 +13,8 @@ class Pokemon: #class qui prends les caractéristique du pokemon
     def getVie(self,nouvelleVie):
         self.vie = nouvelleVie
 
-
+poussifeu=Pokemon("Poussifeu",40,1,"feu",14,0.80,"poussifeu.png")
+print(poussifeu.setNom())
 #pêchage des informations dans le fichier json
 with open('pokedex.json') as file:
     data = json.load(file)

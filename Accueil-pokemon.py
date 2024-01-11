@@ -1,5 +1,6 @@
 import pygame 
 import sys
+from pokemon import Pokemon
 
 class page_accueil():
     
