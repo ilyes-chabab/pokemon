@@ -37,9 +37,9 @@ class PageAccueil:
         # Musique de fond
         pygame.mixer.music.play()
 
-        self.game_loop()    
+        self.Menu_principal()    
 
-    def game_loop(self):
+    def Menu_principal(self):
         while True:
             # Option de jeu exemple:Jouer,plus de pokemon ...
             self.Option_de_jeu()
@@ -78,8 +78,8 @@ class PageAccueil:
 
     def highlight(self, text, position):
         my_font = pygame.font.Font(None, 50)
-        highlighted_text = my_font.render(text, 1, (255, 255, 0))
-        self.screen.blit(highlighted_text, position)
+        highlight_text = my_font.render(text, 1, (255, 255, 0))
+        self.screen.blit(highlight_text, position)
         pygame.display.update()
 
     def Option_de_jeu(self):
