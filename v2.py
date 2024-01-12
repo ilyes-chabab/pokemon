@@ -1,6 +1,7 @@
 import pygame
 import sys
 
+
 class PageAccueil:
     
     def __init__(self):
@@ -61,7 +62,8 @@ class PageAccueil:
     def Hyperlien_jeu(self):
         (x, y) = pygame.mouse.get_pos()
         if 400 < x < 500 and 200 < y < 230:
-            print('Jouer')
+            from arene import Case
+            Case()
         elif 325 < x < 580 and 300 < y < 330:
             print('Voir le Pokédex')
         elif 310 < x < 600 and 400 < y < 430:
@@ -93,5 +95,5 @@ class PageAccueil:
         self.screen.blit(text, (310, 400))
     
 # Création de l'instance de Classe 
-PageAccueil()
+page_accueil=PageAccueil()
 
