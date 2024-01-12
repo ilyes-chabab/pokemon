@@ -1,6 +1,6 @@
 import pygame
 import sys
-
+from pokedex import Pokedex
 class PageAccueil:
     
     def __init__(self):
@@ -36,11 +36,13 @@ class PageAccueil:
         pygame.mixer.music.load('music-menu/Pokemon-menu-music.mp3')
         # Musique de fond
         pygame.mixer.music.play()
+        
 
         self.game_loop()    
 
     def game_loop(self):
-        while True:
+        self.run=True
+        while self.run:
             # Option de jeu exemple:Jouer,plus de pokemon ...
             self.Option_de_jeu()
             # Image logo + 2 pokémons
