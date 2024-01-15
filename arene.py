@@ -1,10 +1,14 @@
 import pygame
 import time
+import random
+import sys
 from pygame import mixer
 pygame.init()
 
 # On crée une fenetre de 900 sur 600 px
-surf = pygame.display.set_mode((900,600))
+width = 900
+height = 600
+surf = pygame.display.set_mode((width,height))
 timer = pygame.time.Clock()
 run = True
 mixer.music.load('battlemusic.mp3')
@@ -15,11 +19,52 @@ fond = pygame.transform.scale(img_fond ,fond_size)
 fond_noir = pygame.transform.scale(noir_fond ,fond_size)
 font_path = "font_interface/Pokemon Solid.ttf"
 
-import pygame
-import time
-pygame.init()
-
+small_pokemon = ["img_pokemon/poussifeu.png" , "img_pokemon/gobou.png", "img_pokemon/miaouss.png" ,"img_pokemon/zigzaton.png" ,"img_pokemon/ronflex.png" ,"img_pokemon/osselait.png" ,"img_pokemon/sabelette.png"]
+big_pokemon = ["img_pokemon/brasegali.png" ,"img_pokemon/laggron.png" ,"img_pokemon/groudon.png" ,"img_pokemon/galifeu.png" ,"img_pokemon/flobio.png"]
+all_pokemon = ["img_pokemon/poussifeu.png" , "img_pokemon/gobou.png", "img_pokemon/miaouss.png" ,"img_pokemon/zigzaton.png" ,"img_pokemon/ronflex.png" ,"img_pokemon/osselait.png" ,"img_pokemon/sabelette.png" ,"img_pokemon/brasegali.png" ,"img_pokemon/laggron.png" ,"img_pokemon/groudon.png" ,"img_pokemon/galifeu.png" ,"img_pokemon/flobio.png"]
  
+def draw_stars():
+    class Star:
+        def __init__(self):
+            self.x = random.randint(-width ,width)
+            self.y = random.randint(-height ,height)
+            self.z = random.randint(-width ,width)
+        
+        def draw(self ,win):
+            sx = maps((self.x)/self.z,0 ,1 ,0 ,width)
+            sy = maps((self.y)/self.z,0 ,1 ,0 ,height)
+            r = maps(self.z ,0 ,width ,6 ,0)
+            pygame.draw.circle(surf ,('white'), (int(sx+width/2) ,int(sy+height/2)) ,r)
+        
+        def update(self):
+            self.z -= 5
+            if self.z < 1:
+                self.x = random.randint(-width ,width)
+                self.y = random.randint(-height ,height)  
+                self.z = random.randint(1 ,width)
+
+    def maps(num ,in_min ,in_max ,out_min ,out_max):
+        return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+
+    stars = []
+    for i in range(500):
+        s = Star()
+        stars.append(s)   
+    
+    while True:
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+    
+        surf.fill((0,0,0))
+        for s in stars:
+            s.update()
+            s.draw(surf)
+        pygame.display.flip()
+
+
 class Case:
     
     def __init__(self):
@@ -49,6 +94,7 @@ class Case:
         surf.blit(image,(670,270))
     
     def get_pos(self ,a ,z ,e ,r ,dos ,c ,v ,face ,j ,k):
+        # Permet de convertir les liens en images pygame
         face_pokemon = pygame.image.load(face)
         dos_pokemon = pygame.image.load(dos)
         dos_size = (280,280)
@@ -56,16 +102,31 @@ class Case:
         if event.type == pygame.MOUSEBUTTONDOWN:
             if pygame.mouse.get_pressed() == (1,0,0) :
                 x , y = pygame.mouse.get_pos()
+                # Permet de savoir quelle case est cliquée
                 if x >= (a) and x <= (z) and y >= (e) and y <= (r):
+                    # Affiche la case selectionée et lance la musique
                     surf.blit(fond_noir ,(0,0))
                     pygame.draw.rect(surf ,(255,255,255) ,(a ,e ,100 ,100) ,2)
+                    p = pygame.draw.rect(surf ,(255,0,0) ,(a ,e ,100 ,100))
                     surf.blit(face_pokemon ,(j ,k))
                     mixer.music.play(-1)
+                    pygame.display.update(p)
                     pygame.display.update()
+                    # draw_stars()
                     time.sleep(3)
+                    # Lance la fenetre de combat
                     surf.blit(fond ,(0,0))
                     surf.blit(resultat, (c,v))
+                    choix1 = random.choice(small_pokemon)
+                    choix2 = random.choice(big_pokemon)
+                    taille = pygame.image.load(choix1)
+                    taille2 = pygame.image.load(choix2)
+                    small_opponent = pygame.transform.scale(taille ,dos_size)
+                    big_opponent = pygame.transform.scale(taille2 ,dos_size)
+                    surf.blit(small_opponent ,(535 ,155)) or surf.blit(big_opponent ,(520 ,130))
                     
+                    
+  
                     
         
         
@@ -138,9 +199,9 @@ while run :
         poussifeu.get_pos(80 ,180 ,20 ,120 ,"dos_pokemon/poussifeudos.png" ,50 ,350 ,"img_pokemon/poussifeu.png" ,98 ,40)
         galifeu.get_pos(380 ,480 ,20 ,120 ,"dos_pokemon/galifeudos.png" ,50 ,320 ,"img_pokemon/galifeu.png" ,398 ,40)
         brasegali.get_pos(700 ,800 ,20 ,120 ,"dos_pokemon/brasegalidos.png" ,50 ,320 ,"img_pokemon/brasegali.png" ,715 ,40)
-        gobou.get_pos(80 ,180 ,160 ,260 ,"dos_pokemon/goboudos.png" ,50 ,340 ,"img_pokemon/gobou.png" ,98 ,140)
-        flobio.get_pos(380 ,480 ,160 ,260 ,"dos_pokemon/flobiodos.png" ,50 ,340 ,"img_pokemon/flobio.png" ,398 ,140)
-        laggron.get_pos(700 ,800 ,160 ,260 ,"dos_pokemon/laggrondos.png" ,50 ,340 ,"img_pokemon/laggron.png" ,720 ,140)
+        gobou.get_pos(80 ,180 ,160 ,260 ,"dos_pokemon/goboudos.png" ,50 ,340 ,"img_pokemon/gobou.png" ,98 ,180)
+        flobio.get_pos(380 ,480 ,160 ,260 ,"dos_pokemon/flobiodos.png" ,50 ,340 ,"img_pokemon/flobio.png" ,398 ,180)
+        laggron.get_pos(700 ,800 ,160 ,260 ,"dos_pokemon/laggrondos.png" ,50 ,340 ,"img_pokemon/laggron.png" ,720 ,180)
         miaouss.get_pos(80 ,180 ,320 ,420 ,"dos_pokemon/miaoussdos.png" ,50 ,375 ,"img_pokemon/miaouss.png",98 ,340)
         zigzaton.get_pos(380 ,480 ,320 ,420 ,"dos_pokemon/zigzatondos.png" ,50 ,370 ,"img_pokemon/zigzaton.png",398 ,340)
         ronflex.get_pos(700 ,800 ,320 ,420 ,"dos_pokemon/ronflexdos.png" ,50 ,370 ,"img_pokemon/ronflex.png",720 ,340)
