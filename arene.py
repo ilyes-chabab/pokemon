@@ -121,9 +121,16 @@ class Case:
                     choix2 = random.choice(big_pokemon)
                     taille = pygame.image.load(choix1)
                     taille2 = pygame.image.load(choix2)
+                    #petit pokemon 
                     small_opponent = pygame.transform.scale(taille ,dos_size)
+                    #grand pokemon 
                     big_opponent = pygame.transform.scale(taille2 ,dos_size)
-                    surf.blit(small_opponent ,(535 ,155)) or surf.blit(big_opponent ,(520 ,130))
+                    #affichage au hazard soit un petit(nb->1) ou grand pokemon(nb->2) 
+                    nb_aleatoire=random.randint(1,2)
+                    if nb_aleatoire==1:
+                        surf.blit(small_opponent ,(535 ,155)) 
+                    else :
+                        surf.blit(big_opponent ,(520 ,130))
                     
                     
   
