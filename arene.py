@@ -1,17 +1,25 @@
 import pygame
+import time
 from pygame import mixer
 pygame.init()
 
 # On crée une fenetre de 900 sur 600 px
 surf = pygame.display.set_mode((900,600))
+timer = pygame.time.Clock()
 run = True
 mixer.music.load('battlemusic.mp3')
-mixer.music.play(-1)
+noir_fond = pygame.image.load("image_arene/fond_noir.jpg")
 img_fond = pygame.image.load("image_arene/fondarenecombat.jpg")
 fond_size = (900,600)
 fond = pygame.transform.scale(img_fond ,fond_size)
+fond_noir = pygame.transform.scale(noir_fond ,fond_size)
 font_path = "font_interface/Pokemon Solid.ttf"
 
+import pygame
+import time
+pygame.init()
+
+ 
 class Case:
     
     def __init__(self):
@@ -40,7 +48,8 @@ class Case:
         surf.blit(image,(180,270))
         surf.blit(image,(670,270))
     
-    def get_pos(self ,a ,z ,e ,r ,dos ,c ,v):
+    def get_pos(self ,a ,z ,e ,r ,dos ,c ,v ,face ,j ,k):
+        face_pokemon = pygame.image.load(face)
         dos_pokemon = pygame.image.load(dos)
         dos_size = (280,280)
         resultat = pygame.transform.scale(dos_pokemon ,dos_size)
@@ -105,26 +114,30 @@ def choose_pokemon():
     # Afficher le texte
     text.draw_text()
 
+    
+
 choose_pokemon()
 
 while run :
+    timer.tick(60)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
+        
    
         # Cliquer dans la case
-        poussifeu.get_pos(80 ,180 ,20 ,120 ,"dos_pokemon/poussifeudos.png" ,50 ,350)
-        galifeu.get_pos(380 ,480 ,20 ,120 ,"dos_pokemon/galifeudos.png" ,50 ,320)
-        brasegali.get_pos(700 ,800 ,20 ,120 ,"dos_pokemon/brasegalidos.png" ,50 ,320)
-        gobou.get_pos(80 ,180 ,160 ,260 ,"dos_pokemon/goboudos.png" ,50 ,340)
-        flobio.get_pos(380 ,480 ,160 ,260 ,"dos_pokemon/flobiodos.png" ,50 ,340)
-        laggron.get_pos(700 ,800 ,160 ,260 ,"dos_pokemon/laggrondos.png" ,50 ,340)
-        miaouss.get_pos(80 ,180 ,320 ,420 ,"dos_pokemon/miaoussdos.png" ,50 ,375)
-        zigzaton.get_pos(380 ,480 ,320 ,420 ,"dos_pokemon/zigzatondos.png" ,50 ,370)
-        ronflex.get_pos(700 ,800 ,320 ,420 ,"dos_pokemon/ronflexdos.png" ,50 ,370)
-        osselait.get_pos(80 ,180 ,480 ,580 ,"dos_pokemon/osselaitdos.png" ,50 ,365)
-        sabelette.get_pos(380 ,480 ,480 ,580 ,"dos_pokemon/sabelettedos.png" ,50 ,378)
-        groudon.get_pos(700 ,800 ,480 ,580 ,"dos_pokemon/groudondos.png" ,50 ,355)
+        poussifeu.get_pos(80 ,180 ,20 ,120 ,"dos_pokemon/poussifeudos.png" ,50 ,350 ,"img_pokemon/poussifeu.png" ,98 ,40)
+        galifeu.get_pos(380 ,480 ,20 ,120 ,"dos_pokemon/galifeudos.png" ,50 ,320 ,"img_pokemon/galifeu.png" ,398 ,40)
+        brasegali.get_pos(700 ,800 ,20 ,120 ,"dos_pokemon/brasegalidos.png" ,50 ,320 ,"img_pokemon/brasegali.png" ,715 ,40)
+        gobou.get_pos(80 ,180 ,160 ,260 ,"dos_pokemon/goboudos.png" ,50 ,340 ,"img_pokemon/gobou.png" ,98 ,140)
+        flobio.get_pos(380 ,480 ,160 ,260 ,"dos_pokemon/flobiodos.png" ,50 ,340 ,"img_pokemon/flobio.png" ,398 ,140)
+        laggron.get_pos(700 ,800 ,160 ,260 ,"dos_pokemon/laggrondos.png" ,50 ,340 ,"img_pokemon/laggron.png" ,720 ,140)
+        miaouss.get_pos(80 ,180 ,320 ,420 ,"dos_pokemon/miaoussdos.png" ,50 ,375 ,"img_pokemon/miaouss.png",98 ,340)
+        zigzaton.get_pos(380 ,480 ,320 ,420 ,"dos_pokemon/zigzatondos.png" ,50 ,370 ,"img_pokemon/zigzaton.png",398 ,340)
+        ronflex.get_pos(700 ,800 ,320 ,420 ,"dos_pokemon/ronflexdos.png" ,50 ,370 ,"img_pokemon/ronflex.png",720 ,340)
+        osselait.get_pos(80 ,180 ,480 ,580 ,"dos_pokemon/osselaitdos.png" ,50 ,365 ,"img_pokemon/osselait.png" ,98 ,500)
+        sabelette.get_pos(380 ,480 ,480 ,580 ,"dos_pokemon/sabelettedos.png" ,50 ,378 ,"img_pokemon/sabelette.png" ,398 ,500)
+        groudon.get_pos(700 ,800 ,480 ,580 ,"dos_pokemon/groudondos.png" ,50 ,355 ,"img_pokemon/groudon.png" ,720 ,500)
         pygame.display.flip()
 
         if event.type == pygame.KEYDOWN :
