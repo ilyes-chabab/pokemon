@@ -107,6 +107,7 @@ class Case:
         dos_pokemon = pygame.image.load(dos)
         dos_size = (280,280)
         resultat = pygame.transform.scale(dos_pokemon ,dos_size)
+        
         if event.type == pygame.MOUSEBUTTONDOWN:
             if pygame.mouse.get_pressed() == (1,0,0) :
                 x , y = pygame.mouse.get_pos()
@@ -123,10 +124,10 @@ class Case:
 
                     surf.blit(fond_noir ,(0,0))
                     pygame.draw.rect(surf ,(255,255,255) ,(a ,e ,100 ,100) ,2)
-                    p = pygame.draw.rect(surf ,(255,0,0) ,(a ,e ,100 ,100))
+                    pygame.draw.rect(surf ,(255,0,0) ,(a ,e ,100 ,100))
                     surf.blit(face_pokemon ,(j ,k))
                     mixer.music.play(-1)
-                    pygame.display.update(p)
+                    # pygame.display.update(p)
                     pygame.display.update()
                     # draw_stars()
                     time.sleep(3)
@@ -218,6 +219,7 @@ def choose_pokemon():
 choose_pokemon()
 
 while run :
+    #fps
     timer.tick(60)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
