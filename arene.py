@@ -6,6 +6,7 @@ from pygame import mixer
 pygame.init()
 
 # On crée une fenetre de 900 sur 600 px
+
 width = 900
 height = 600
 surf = pygame.display.set_mode((width,height))
@@ -34,7 +35,7 @@ def draw_stars():
             sx = maps((self.x)/self.z,0 ,1 ,0 ,width)
             sy = maps((self.y)/self.z,0 ,1 ,0 ,height)
             r = maps(self.z ,0 ,width ,6 ,0)
-            pygame.draw.circle(surf ,('white'), (int(sx+width/2) ,int(sy+height/2)) ,r)
+            pygame.draw.circle(surf ,('gold'), (int(sx+width/2) ,int(sy+height/2)) ,r)
         
         def update(self):
             self.z -= 5
@@ -63,6 +64,7 @@ def draw_stars():
             s.update()
             s.draw(surf)
         pygame.display.flip()
+
 
 
 class Case:
@@ -102,9 +104,13 @@ class Case:
         if event.type == pygame.MOUSEBUTTONDOWN:
             if pygame.mouse.get_pressed() == (1,0,0) :
                 x , y = pygame.mouse.get_pos()
+
                 # Permet de savoir quelle case est cliquée
+
                 if x >= (a) and x <= (z) and y >= (e) and y <= (r):
+
                     # Affiche la case selectionée et lance la musique
+
                     surf.blit(fond_noir ,(0,0))
                     pygame.draw.rect(surf ,(255,255,255) ,(a ,e ,100 ,100) ,2)
                     p = pygame.draw.rect(surf ,(255,0,0) ,(a ,e ,100 ,100))
@@ -114,6 +120,7 @@ class Case:
                     pygame.display.update()
                     # draw_stars()
                     time.sleep(3)
+
                     # Lance la fenetre de combat
                     surf.blit(fond ,(0,0))
                     surf.blit(resultat, (c,v))
@@ -128,7 +135,6 @@ class Case:
                     
   
                     
-        
         
 
 # Initialisation des case correspondant à chaque pokemon
