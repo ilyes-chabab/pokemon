@@ -19,6 +19,7 @@ fond_size = (900,600)
 fond = pygame.transform.scale(img_fond ,fond_size)
 fond_noir = pygame.transform.scale(noir_fond ,fond_size)
 font_path = "font_interface/Pokemon Solid.ttf"
+verif = True
 
 small_pokemon = ["img_pokemon/poussifeu.png" , "img_pokemon/gobou.png", "img_pokemon/miaouss.png" ,"img_pokemon/zigzaton.png" ,"img_pokemon/ronflex.png" ,"img_pokemon/osselait.png" ,"img_pokemon/sabelette.png"]
 big_pokemon = ["img_pokemon/brasegali.png" ,"img_pokemon/laggron.png" ,"img_pokemon/groudon.png" ,"img_pokemon/galifeu.png" ,"img_pokemon/flobio.png"]
@@ -35,7 +36,7 @@ def draw_stars():
             sx = maps((self.x)/self.z,0 ,1 ,0 ,width)
             sy = maps((self.y)/self.z,0 ,1 ,0 ,height)
             r = maps(self.z ,0 ,width ,6 ,0)
-            pygame.draw.circle(surf ,('gold'), (int(sx+width/2) ,int(sy+height/2)) ,r)
+            pygame.draw.circle(surf ,('white'), (int(sx+width/2) ,int(sy+height/2)) ,r)
         
         def update(self):
             self.z -= 5
@@ -73,6 +74,7 @@ class Case:
         pass
     
     # X et Y sont les coordonnées pour nos carré
+
     def draw_case(self ,x ,y):
         pygame.draw.rect(surf ,(255,255,255) ,(x ,y ,100 ,100) ,2)
     
@@ -96,7 +98,11 @@ class Case:
         surf.blit(image,(670,270))
     
     def get_pos(self ,a ,z ,e ,r ,dos ,c ,v ,face ,j ,k):
+
+        global verif
+
         # Permet de convertir les liens en images pygame
+
         face_pokemon = pygame.image.load(face)
         dos_pokemon = pygame.image.load(dos)
         dos_size = (280,280)
@@ -107,7 +113,11 @@ class Case:
 
                 # Permet de savoir quelle case est cliquée
 
-                if x >= (a) and x <= (z) and y >= (e) and y <= (r):
+                if x >= (a) and x <= (z) and y >= (e) and y <= (r) and verif == True:
+
+                    # Verification qui permet d'empecher de cliquer sur une case une fois le combat lancée
+
+                    verif = False
 
                     # Affiche la case selectionée et lance la musique
 
@@ -128,11 +138,17 @@ class Case:
                     choix2 = random.choice(big_pokemon)
                     taille = pygame.image.load(choix1)
                     taille2 = pygame.image.load(choix2)
-                    #petit pokemon 
+
+                    # petit pokemon
+                     
                     small_opponent = pygame.transform.scale(taille ,dos_size)
-                    #grand pokemon 
+
+                    # grand pokemon 
+
                     big_opponent = pygame.transform.scale(taille2 ,dos_size)
+
                     #affichage au hazard soit un petit(nb->1) ou grand pokemon(nb->2) 
+
                     nb_aleatoire=random.randint(1,2)
                     if nb_aleatoire==1:
                         surf.blit(small_opponent ,(535 ,155)) 
