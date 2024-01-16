@@ -127,7 +127,6 @@ class Case:
                     pygame.draw.rect(surf ,(255,0,0) ,(a ,e ,100 ,100))
                     surf.blit(face_pokemon ,(j ,k))
                     mixer.music.play(-1)
-                    # pygame.display.update(p)
                     pygame.display.update()
                     # draw_stars()
                     time.sleep(3)
@@ -150,11 +149,16 @@ class Case:
 
                     #affichage au hazard soit un petit(nb->1) ou grand pokemon(nb->2) 
 
-                    nb_aleatoire=random.randint(1,2)
-                    if nb_aleatoire==1:
+                    nb_aleatoire = random.randint(1,2)
+                    if nb_aleatoire == 1:
                         surf.blit(small_opponent ,(535 ,155)) 
                     else :
                         surf.blit(big_opponent ,(520 ,130))
+
+                    
+    
+    
+        
                     
                     
   
@@ -243,5 +247,6 @@ while run :
 
         if event.type == pygame.KEYDOWN :
             if event.key == pygame.K_SPACE :
+                verif = True
                 choose_pokemon()
 pygame.quit()
