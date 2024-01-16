@@ -15,18 +15,5 @@ class Pokemon: #class qui prends les caractéristique du pokemon
 
 poussifeu=Pokemon("Poussifeu",40,1,"feu",14,0.80,"poussifeu.png")
 print(poussifeu.setNom())
-#pêchage des informations dans le fichier json
-with open('pokedex.json') as file:
-    data = json.load(file)
-
-# Création des objets Pokemon à partir des données JSON
-liste_pokemons = []
-for pokemon_data in data:
-    pokemon = Pokemon(pokemon_data['nom'], pokemon_data['vie'], pokemon_data['niveau'],
-                      pokemon_data['type'], pokemon_data['puissance'], pokemon_data['defense'],
-                      pokemon_data['image'])
-    liste_pokemons.append(pokemon)
-# Affichage des informations de chaque Pokémon créé
-for pokemon in liste_pokemons:
-    print(f"Nom : {pokemon.nom}, Vie : {pokemon.vie}, Niveau : {pokemon.niveau}, Type : {pokemon.type}, "
-          f"Puissance : {pokemon.puissance}, Defense : {pokemon.defense}, Image : {pokemon.image}")
+print(f"Nom : {poussifeu.nom}, Vie : {poussifeu.vie}, Niveau : {poussifeu.niveau}, Type : {poussifeu.type}, "
+        f"Puissance : {poussifeu.puissance}, Defense : {poussifeu.defense}, Image : {poussifeu.image}")
