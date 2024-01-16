@@ -156,14 +156,6 @@ class Case:
                         surf.blit(big_opponent ,(520 ,130))
 
                     
-    
-    
-        
-                    
-                    
-  
-                    
-        
 
 # Initialisation des case correspondant à chaque pokemon
 poussifeu = Case ()
