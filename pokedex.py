@@ -51,7 +51,7 @@ class Pokedex:
         self.pokedex_Brasegali=False
         self.pokedex_Gobou=False
         self.pokedex_Flobio=False
-        self.pokedex_Laggron=False
+        self.pokedex_Laggron=True
         self.pokedex_Miaouss=False
         self.pokedex_Zigzaton=False
         self.pokedex_Ronflex=False
