@@ -3,6 +3,8 @@ import time
 import random
 import sys
 from pygame import mixer
+from pokemon import Pokemon
+from combat import Combat
 pygame.init()
 
 # On crée une fenetre de 900 sur 600 px
@@ -99,6 +101,8 @@ class Case:
     
     def get_pos(self ,a ,z ,e ,r ,dos ,c ,v ,face ,j ,k):
 
+        # Global permet de la rendre variable verif utilisable dans la fonction get_pos
+
         global verif
 
         # Permet de convertir les liens en images pygame
@@ -106,7 +110,7 @@ class Case:
         face_pokemon = pygame.image.load(face)
         dos_pokemon = pygame.image.load(dos)
         dos_size = (280,280)
-        resultat = pygame.transform.scale(dos_pokemon ,dos_size)
+        joueur1 = pygame.transform.scale(dos_pokemon ,dos_size)
         
         if event.type == pygame.MOUSEBUTTONDOWN:
             if pygame.mouse.get_pressed() == (1,0,0) :
@@ -133,7 +137,9 @@ class Case:
 
                     # Lance la fenetre de combat
                     surf.blit(fond ,(0,0))
-                    surf.blit(resultat, (c,v))
+                    surf.blit(joueur1, (c,v))
+                    health.draw_health_bar(650 ,550 ,200 ,30)
+                    health.draw_health_bar(100 ,50 ,200 ,30)
                     choix1 = random.choice(small_pokemon)
                     choix2 = random.choice(big_pokemon)
                     taille = pygame.image.load(choix1)
@@ -154,6 +160,19 @@ class Case:
                         surf.blit(small_opponent ,(535 ,155)) 
                     else :
                         surf.blit(big_opponent ,(520 ,130))
+                    
+                    combat.lancerCombat()
+
+    
+    def draw_health_bar(self ,x ,y ,w ,h):
+        hp = 100
+        max_hp = 100
+        ratio = hp / max_hp
+        pygame.draw.rect(surf , "red" ,(x ,y ,w ,h))
+        pygame.draw.rect(surf , "green" ,(x ,y ,w * ratio,h))
+
+        
+        
 
                     
 
@@ -171,6 +190,9 @@ osselait = Case ()
 sabelette = Case ()
 groudon = Case()
 text = Case ()
+health = Case ()
+test = Pokemon("poussifeu" ,100 ,5 ,"feu" ,1 ,1 ,"img")
+combat = Combat()
 
 def choose_pokemon():
 
@@ -215,7 +237,7 @@ def choose_pokemon():
 choose_pokemon()
 
 while run :
-    #fps
+    # fps
     timer.tick(60)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
