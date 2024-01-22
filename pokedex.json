@@ -11,4 +11,4 @@
     {"nom": "Osselait", "vie": 40, "niveau": 1,"type": "sol","puissance": 16,"defense": 0.70,"image": "osselait.png"},
     {"nom": "Sabelette", "vie": 40, "niveau": 1,"type": "sol","puissance": 16,"defense": 0.70,"image": "sabelette.png"},
     {"nom": "Groudon", "vie": 40, "niveau": 1,"type": "sol","puissance": 16,"defense": 0.70,"image": "groudon.png"}
-]
+]null
